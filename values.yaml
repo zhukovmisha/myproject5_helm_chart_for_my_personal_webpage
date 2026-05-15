@@ -1,0 +1,23 @@
+replicaCount: 1
+
+image:
+  repository: yourname/youimage
+  tag: yourtag
+  pullPolicy: IfNotPresent
+
+app:
+  name: nginx
+
+service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 5000
+
+ingress:
+  enabled: true
+  className: nginx
+
+  host: yourdomain.com
+
+  path: /
+  pathType: Prefix
